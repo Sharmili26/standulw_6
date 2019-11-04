@@ -1,0 +1,173 @@
+---
+title: "Assignment 6- DMU"
+output: html_document
+---
+
+```{r}
+#Question 1
+#DMU1
+dumu1 <- make.lp(0,4)
+lp.control(dumu1, sense ="max")
+set.objfn(dumu1, c(0,0,14000, 3500))
+
+#Facility 1
+add.constraint(dumu1,c(-150,-0.2,14000,3500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dumu1,c(-400,-0.7,14000,21000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dumu1,c(-320,-1.2,42000,10500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dumu1,c(-520,-2.0,28000,42000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dumu1,c(-350,-1.2,19000,25000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dumu1,c(-320,-0.7,14000,15000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dumu1,c(150,0.2),"=",1,indices = c(1,2))
+solve(dumu1)
+get.objective(dumu1)
+get.variables(dumu1)
+
+#The objective value is 1 which indicates we can achieve maximum efficiency 
+```
+
+
+
+```{r }
+#DMU2
+dmu2 <- make.lp(0,4)
+lp.control(dmu2, sense ="max")
+set.objfn(dmu2, c(0,0,14000, 21000))
+
+#Facility 2
+add.constraint(dmu2,c(-400,-0.7,14000,21000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu2,c(-150,-0.2,14000,3500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu2,c(-320,-1.2,42000,10500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu2,c(-520,-2.0,28000,42000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu2,c(-350,-1.2,19000,25000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu2,c(-320,-0.7,14000,15000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu2,c(400,0.7),"=",1,indices = c(1,2))
+solve(dmu2)
+get.objective(dmu2)
+get.variables(dmu2)
+
+#The objective value is 1 which indicates we can achieve maximum efficiency 
+```
+
+```{r}
+#DMU3
+dmu3 <- make.lp(0,4)
+lp.control(dmu3, sense ="max")
+set.objfn(dmu3, c(0,0,42000, 10500))
+
+#Facility 3
+add.constraint(dmu3,c(-400,-0.7,14000,21000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu3,c(-150,-0.2,14000,3500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu3,c(-320,-1.2,42000,10500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu3,c(-520,-2.0,28000,42000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu3,c(-350,-1.2,19000,25000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu3,c(-320,-0.7,14000,15000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu3,c(320,1.2),"=",1,indices = c(1,2))
+solve(dmu3)
+get.objective(dmu3)
+get.variables(dmu3)
+
+#The objective value is 1 which indicates we can achieve maximum efficiency 
+```
+```{r}
+#DMU4
+dmu4 <- make.lp(0,4)
+lp.control(dmu4, sense ="max")
+set.objfn(dmu4, c(0,0,28000, 42000))
+
+#Facility 4
+add.constraint(dmu4,c(-400,-0.7,14000,21000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu4,c(-150,-0.2,14000,3500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu4,c(-320,-1.2,42000,10500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu4,c(-520,-2.0,28000,42000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu4,c(-350,-1.2,19000,25000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu4,c(-320,-0.7,14000,15000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu4,c(520,2.0),"=",1,indices = c(1,2))
+solve(dmu4)
+get.objective(dmu4)
+get.variables(dmu4)
+
+#The objective value is 1 which indicates we can achieve maximum efficiency 
+```
+```{r}
+#DMU5
+dmu5 <- make.lp(0,4)
+lp.control(dmu5, sense ="max")
+set.objfn(dmu5, c(0,0,19000, 25000))
+
+#Facility 5
+add.constraint(dmu5,c(-400,-0.7,14000,21000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu5,c(-150,-0.2,14000,3500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu5,c(-320,-1.2,42000,10500),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu5,c(-520,-2.0,28000,42000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu5,c(-350,-1.2,19000,25000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu5,c(-320,-0.7,14000,15000),"<=",0,indices = c(1,2,3,4))
+add.constraint(dmu5,c(350,1.2),"=",1,indices = c(1,2))
+solve(dmu5)
+get.objective(dmu5)
+get.variables(dmu5)
+
+#The objective value is 0.9774987 which indicates we are not able to achieve maximum efficiency 
+```
+```{r}
+#DEA Analysis
+x <- matrix(c(150,400,320,520,350,320,0.2,0.7,1.2,2,1.2,.7),ncol=2)
+y <- matrix(c(14000,14000,42000,28000,19000,14000,3500,21000,10500,42000,25000,15000),ncol=2)
+colnames(x) <- c("staff_hours_per_day","cost_supplies_per_day")
+colnames(y) <- c("reimbursed_patient_days","privately_paid_patient_days")
+rownames(x) <-paste0(rep("Facility",6),seq(1,6,1))
+rownames(y)<-paste0(rep("Facility",6),seq(1,6,1))
+e1 <-dea(x,y,RTS = "crs")
+e2 <-dea(x,y,RTS = "fdh")
+e3 <-dea(x,y,RTS = "vrs")
+e4 <-dea(x,y,RTS = "irs")
+e5 <-dea(x,y,RTS = "drs")
+e6 <-dea(x,y,RTS = "add")
+e7 <-dea(x,y,RTS = "irs2")
+e8 <-dea(x,y,RTS = "fdh+")
+
+
+```
+
+
+```{r}
+#Peers and lambdas for each technique
+peers(e1)
+lambda(e1)
+peers(e2)
+lambda(e2)
+peers(e3)
+lambda(e3)
+peers(e4)
+lambda(e4)
+peers(e5)
+lambda(e5)
+peers(e6)
+lambda(e6)
+peers(e7)
+lambda(e7)
+peers(e8)
+lambda(e8)
+```
+
+
+```{r}
+#Question 3
+output <- cbind(round(r1$eff, 4), round(r1$lambda, 4))
+colnames(output)<-c("efficiency", rownames(output))
+output
+
+#From the result facility 5 and facility 6 are efficient. The efficiency has been achieved by using lambda values 
+```
+```{r}
+#Question 4
+#Compare and contrast the above results
+com<-cbind(e1$eff,e2$eff,e3$eff,e4$eff,e5$eff,e6$eff,e7$eff,e8$eff)
+colnames(com)<-c(paste0(rep("r",8),seq(1,8,1)))
+com
+
+#The efficiency of each variables have varied for each assumption 
+
+
+```
+
+
